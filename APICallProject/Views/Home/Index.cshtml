@@ -1,0 +1,35 @@
+﻿@using APICallProject.Models
+@model Root
+@{
+    ViewData["Title"] = "Home Page";
+    var location = Model.location;
+    var current = Model.current;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Weather ForeCast</h1>
+
+    @if (Model != null)
+    {
+        <p>
+            <h2>Location</h2>
+            <ul class="list-group">
+                <li class="list-group-item">@location.name, @location.region, @location.country </li>
+            </ul>
+        </p>
+
+        <p class="row col-md-6 text-center">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-light"> Temparature in Celsius @current.temp_c - @current.feelslike_c</li>
+                    <li class="list-group-item list-group-item-light"> Temparature in Farenhiet @current.temp_f - @current.feelslike_f</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                
+                    <img style="width:25px;" src="@current.condition.icon" /> <span> @current.condition.text</span>
+                 
+            </div>
+        </p>
+    }
+</div>
