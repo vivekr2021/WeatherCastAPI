@@ -9,13 +9,19 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/WeatherCastTD",
+          "awslogs-group": "/ecs/WeathercAstAPI",
           "awslogs-region": "us-east-2",
           "awslogs-stream-prefix": "ecs"
         }
       },
       "entryPoint": null,
-      "portMappings": [],
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
@@ -31,7 +37,7 @@
       "memoryReservation": 1024,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "939450417906.dkr.ecr.us-east-2.amazonaws.com/imgweather:latest",
+      "image": "939450417906.dkr.ecr.us-east-2.amazonaws.com/imgweather:9dce131ab92bef7b04acdabc8345fb647dccf462",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -48,7 +54,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "WeatherContainer"
+      "name": "WeatherCastContainer"
     }
   ],
   "placementConstraints": [],
@@ -58,8 +64,8 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-2:939450417906:task-definition/WeatherCastTD:1",
-  "family": "WeatherCastTD",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-2:939450417906:task-definition/WeathercAstAPI:1",
+  "family": "WeathercAstAPI",
   "requiresAttributes": [
     {
       "targetId": null,
